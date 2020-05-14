@@ -40,7 +40,7 @@ plt.show()
 
 #Initialize the 2x2 covaraince matrix
 # P_k = ...
-P_k = np.zeros(2,2, dtype = int)
+P_k = np.zeros((2,2), dtype = int)
 
 #Initialize the parameter estimate x
 # x_k = ...
@@ -66,7 +66,7 @@ for k in range(num_meas):
     
     #Construct K_k
     # K_k = ...
-    K_k = (P_k.dot(H.T)).dot(inv(((H.dot(P_k)).dot(H.T)) + Var))
+    K_k = (P_k.dot(H.T)).dot(inv(((H.dot(P_k)).dot(H.T)) + np.array(([Var, 0], [0, Var]), dtype = int)))
     
     #Update our estimate
     # x_k = ...
